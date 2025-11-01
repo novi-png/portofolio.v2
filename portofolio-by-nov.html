@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portofolio Novita</title>
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* === GAYA DASAR === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #1b1f2a;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    /* === NAVBAR === */
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      background: #141824;
+      padding: 15px 0;
+      border-bottom: 2px solid #6a00ff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.6em;
+      font-weight: bold;
+      color: #a020f0;
+      text-shadow: 0 0 10px #a020f0;
+      margin-right: 80px;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.1em;
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #00ffff;
+      box-shadow: 0 0 10px #00ffff;
+      transition: 0.3s ease;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    nav a.active {
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    /* === HEADER === */
+    header {
+      padding: 50px 20px;
+    }
+
+    header h1 {
+      font-size: 1.4em;
+      color: #00ffaa;
+      text-transform: uppercase;
+      text-shadow: 0 0 15px #00ffaa;
+    }
+
+    header img {
+      width: 180px;
+      border-radius: 50%;
+      border: 3px solid #00ff99;
+      box-shadow: 0 0 20px #00ffaa;
+      margin-top: 20px;
+    }
+
+    /* === MARQUEE === */
+    .marquee {
+      background-color: #141824;
+      padding: 10px;
+      color: #00ffff;
+      font-weight: bold;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee span {
+      display: inline-block;
+      animation: scrollText 12s linear infinite;
+    }
+
+    @keyframes scrollText {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* === SECTION === */
+    section {
+      padding: 60px 20px;
+    }
+
+    section h2 {
+      font-size: 1.6em;
+      margin-bottom: 20px;
+      color: #00ffaa;
+      text-shadow: 0 0 10px #00ffaa;
+    }
+
+    section p, li {
+      font-size: 1.1em;
+      color: #d6d6d6;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    /* === KONTAK BARU === */
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .contact-box {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: #1e2433;
+      border-radius: 15px;
+      padding: 15px 20px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .contact-box:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px #00ffff;
+    }
+
+    .icon-circle {
+      background: #0e1624;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 10px #00ffff;
+    }
+
+    .icon-circle i {
+      font-size: 1.5em;
+      color: #00ffff;
+    }
+
+    .contact-info h3 {
+      margin: 0;
+      color: #00ffaa;
+      font-size: 1.1em;
+      text-shadow: 0 0 6px #00ffaa;
+    }
+
+    .contact-info a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.95em;
+      opacity: 0.9;
+    }
+
+    .contact-info a:hover {
+      color: #00ffff;
+      text-shadow: 0 0 8px #00ffff;
+    }
+
+    /* === FORM KONTAK === */
+    form {
+      max-width: 400px;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #00ffaa;
+      border-radius: 8px;
+      background: #23283b;
+      color: white;
+      font-size: 1em;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px #00ffaa;
+    }
+
+    .btn {
+      background: #00ffaa;
+      border: none;
+      padding: 10px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #00ffff;
+      box-shadow: 0 0 15px #00ffff;
+    }
+
+    /* === FOOTER === */
+    footer {
+      background: #141824;
+      padding: 5px;
+      border-top: 1px solid #00ff99;
+      color: #ccc;
+    }
+
+    /* === JAM & TYPEWRITER === */
+    #jam {
+      font-size: 40px;
+      font-weight: bold;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+      margin-top: 20px;
+    }
+
+    #typewriter {
+      font-size: 18px;
+      color: #00ffb3;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- === NAVBAR === -->
+  <nav>
+    <a href="#tentang" class="nav-link active"><i class="fas fa-user"></i> Tentang</a>
+    <a href="#keahlian" class="nav-link"><i class="fas fa-cogs"></i> Keahlian</a>
+    <a href="#kontak" class="nav-link"><i class="fas fa-envelope"></i> Kontak</a>
+  </nav>
+
+  <header>
+    <h1>I'am a Developer novXploit</h1>
+    <img src="novita.jpg" alt="Foto Profil">
+  </header>
+
+  <div class="marquee">
+    <span>⚡ Selamat datang di portofolio saya | Novita | Cyber Security | Networking | Coding For Security ⚡</span>
+  </div>
+
+  <!-- === TENTANG === -->
+  <section id="tentang">
+    <h2><i class="fas fa-user"></i> Tentang Saya</h2>
+    <p>Halo, saya <strong>Novita Amanda</strong> — seorang pecinta dunia <em>Cyber Security</em> dan <em>Etical Hacking</em>.
+      Saya fokus pada analisis celah keamanan, membangun sistem yang aman, dan melindungi data dari ancaman siber.</p>
+  </section>
+
+  <!-- === KEAHLIAN === -->
+  <section id="keahlian">
+    <h2><i class="fas fa-cogs"></i> Keahlian</h2>
+    <ul>
+      <li>🧠 Penetration Testing</li>
+      <li>🔐 Network Security</li>
+      <li>💻 Web Vulnerability Analysis</li>
+      <li>⚙️ Programming (Python, HTML, CSS, JS)</li>
+    </ul>
+  </section>
+
+  <!-- === KONTAK BARU === -->
+  <section id="kontak">
+    <h2><i class="fas fa-envelope"></i> Kontak</h2>
+
+    <div class="contact-container">
+      <div class="contact-box">
+        <div class="icon-circle"><i class="fab fa-whatsapp"></i></div>
+        <div class="contact-info">
+          <h3>WhatsApp</h3>
+          <a href="https://wa.me/6285711157191" target="_blank">+62 857 1115 7191</a>
+        </div>
+      </div>
+
+      <div class="contact-box">
+        <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+        <div class="contact-info">
+          <h3>Email</h3>
+          <a href="mailto:novxploit578@gmail.com">novxploit578@gmail.com</a>
+        </div>
+      </div>
+
+      <div class="contact-box">
+        <div class="icon-circle"><i class="fab fa-instagram"></i></div>
+        <div class="contact-info">
+          <h3>Instagram</h3>
+          <a href="https://instagram.com/izaae_11" target="_blank">@izaae_11</a>
+        </div>
+      </div>
+
+      <div class="contact-box">
+        <div class="icon-circle"><i class="fab fa-facebook-f"></i></div>
+        <div class="contact-info">
+          <h3>Facebook</h3>
+          <a href="https://www.facebook.com/novii ajh" target="_blank">novii ajh</a>
+        </div>
+      </div>
+    </div>
+
+    <p style="margin-top:25px;">silakan hubungi saya dengan form di bawah ini:</p>
+    <form>
+      <input type="text" placeholder="Nama Lengkap" required>
+      <input type="email" placeholder="Alamat Email" required>
+      <textarea rows="5" placeholder="Pesan Anda..." required></textarea>
+      <button type="submit" class="btn">Kirim Pesan</button>
+    </form>
+  </section>
+
+  <!-- === FOOTER === -->
+  <footer>
+    <div id="jam"></div>
+    <div id="typewriter"></div>
+    <p>© 2025 Novita | Cyber Security & Ethical Hacking</p>
+  </footer>
+
+  <div class="marquee">
+    <span>✨ THANK YOU FOR VISITING MY WEBSITE ✨</span>
+  </div>
+
+  <!-- === SCRIPT === -->
+  <script>
+    // NAVBAR AKTIF
+    const links = document.querySelectorAll('.nav-link');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+
+    // JAM DIGITAL
+    function padZero(num) { return (num < 10 ? '0' : '') + num; }
+    function updateJam() {
+      const now = new Date();
+      const jam = padZero(now.getHours());
+      const menit = padZero(now.getMinutes());
+      const detik = padZero(now.getSeconds());
+      document.getElementById('jam').textContent = `${jam}:${menit}:${detik}`;
+      setTimeout(updateJam, 1000);
+    }
+    updateJam();
+
+    // TYPEWRITER
+    const teks = 'Stop cyberbullying karena dapat merusak kesehatan mental seseorang';
+    let i = 0;
+    function ketik() {
+      if (i < teks.length) {
+        document.getElementById('typewriter').innerHTML += teks.charAt(i);
+        i++;
+        setTimeout(ketik, 50);
+      }
+    }
+    ketik();
+  </script>
+</body>
+</html>
